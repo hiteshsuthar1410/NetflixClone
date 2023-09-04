@@ -18,6 +18,8 @@
 		38D2E5392A9B1E0B0043B3F6 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D2E5382A9B1E0B0043B3F6 /* TitleCollectionViewCell.swift */; };
 		38D2E53C2A9B3DF80043B3F6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 38D2E53B2A9B3DF80043B3F6 /* SDWebImage */; };
 		38D2E53E2A9B3DF80043B3F6 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 38D2E53D2A9B3DF80043B3F6 /* SDWebImageMapKit */; };
+		38D2E5422A9B9FB90043B3F6 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D2E5412A9B9FB90043B3F6 /* TitleTableViewCell.swift */; };
+		38D2E5442A9BAA640043B3F6 /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D2E5432A9BAA640043B3F6 /* TitleViewModel.swift */; };
 		38ED4B672A7247A300C19C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED4B662A7247A300C19C4F /* AppDelegate.swift */; };
 		38ED4B692A7247A300C19C4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED4B682A7247A300C19C4F /* SceneDelegate.swift */; };
 		38ED4B6B2A7247A300C19C4F /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED4B6A2A7247A300C19C4F /* MainTabBarViewController.swift */; };
@@ -35,6 +37,8 @@
 		386B97A12A74D92C0048E1DE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		386B97A32A74DC070048E1DE /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		38D2E5382A9B1E0B0043B3F6 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		38D2E5412A9B9FB90043B3F6 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		38D2E5432A9BAA640043B3F6 /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleViewModel.swift; path = "Netflix clone/Views/TitleViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		38ED4B632A7247A300C19C4F /* Netflix clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38ED4B662A7247A300C19C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38ED4B682A7247A300C19C4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,7 @@
 				3808262E2A7AC45C004C7A7B /* CollectionViewTableViewCell.swift */,
 				3864CD2B2A82AF3600BF02C8 /* HeroHeaderUIView.swift */,
 				38D2E5382A9B1E0B0043B3F6 /* TitleCollectionViewCell.swift */,
+				38D2E5412A9B9FB90043B3F6 /* TitleTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -70,6 +75,7 @@
 		3808262A2A7AC367004C7A7B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				38D2E5432A9BAA640043B3F6 /* TitleViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 			files = (
 				386B97A22A74D92C0048E1DE /* SearchViewController.swift in Sources */,
 				38ED4B6B2A7247A300C19C4F /* MainTabBarViewController.swift in Sources */,
+				38D2E5422A9B9FB90043B3F6 /* TitleTableViewCell.swift in Sources */,
 				3808262F2A7AC45C004C7A7B /* CollectionViewTableViewCell.swift in Sources */,
 				385DA5ED2A8E85AA003909F0 /* APICaller.swift in Sources */,
 				3864CD2C2A82AF3600BF02C8 /* HeroHeaderUIView.swift in Sources */,
@@ -230,6 +237,7 @@
 				38ED4B692A7247A300C19C4F /* SceneDelegate.swift in Sources */,
 				386B97A02A74D8FC0048E1DE /* UpcomingViewController.swift in Sources */,
 				38D2E5392A9B1E0B0043B3F6 /* TitleCollectionViewCell.swift in Sources */,
+				38D2E5442A9BAA640043B3F6 /* TitleViewModel.swift in Sources */,
 				385DA5EF2A8E9043003909F0 /* Title.swift in Sources */,
 				386B979D2A74D8C50048E1DE /* HomeViewController.swift in Sources */,
 			);
