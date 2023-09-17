@@ -51,6 +51,8 @@ class TitlePreviewViewController: UIViewController {
         view.addSubview(webView)
         
         configureConstraints()
+        
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func configureConstraints() {
