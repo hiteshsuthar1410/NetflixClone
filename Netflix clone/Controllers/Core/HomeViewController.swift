@@ -37,6 +37,8 @@ class HomeViewController: UIViewController {
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 500))
         homeFeedTable.tableHeaderView = headerView
+        
+        
     }
     
     private func configureNavbar() {
@@ -82,6 +84,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        cell.delegate = self
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
             APICaller.shared.getTrendingMovies { result in
@@ -153,6 +156,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.navigationBar.transform = .init(translationX: 0, y: -offset)
     }
     
+    
+    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
@@ -161,4 +166,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         header.textLabel?.text = header.textLabel?.text?.capitalized
     }
     
+}
+
+extension HomeViewController: CollectionViewTableViewCellDelegate {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+        
 }

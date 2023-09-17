@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol CollectionViewTableViewCellDelegate: AnyObject {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, viewModel: TitlePreviewViewModel)
+}
+
 class CollectionViewTableViewCell: UITableViewCell { // It will handle each cell
 
     static let identifier = "CollectionViewTableViewCell"
+    
+    weak var delegate: CollectionViewTableViewCellDelegate?
     
     private var titles = [Title]()
     
@@ -20,7 +26,8 @@ class CollectionViewTableViewCell: UITableViewCell { // It will handle each cell
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
-        
+        collectionView.contentInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
@@ -63,6 +70,26 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         guard let model = titles[indexPath.row].posterPath else { return UICollectionViewCell()}
         cell.configure(with: model)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true) // first deselect the item after tap
+        let title = titles[indexPath.row] // this index path actually contains the section and the row/item(actual index) that is selected. It is not index but indexPath. The actual index with respect to the section is present in the .row or .item
+        //Example: IndexPath(section: 0, row: 1)
+        guard let titleName = title.original_title ?? title.original_name else { return }
+        
+        APICaller.shared.getMovie(with: titleName + " trailer") { [weak self] result in
+            switch result {
+            case .success(let videoElement):
+                let title = self?.titles[indexPath.row]
+                
+                guard let strongSelf = self else { return }
+                let viewModel = TitlePreviewViewModel(title: title?.original_title ??  title?.original_title ?? "N/A", youtubeVideo: videoElement, titleOverview: title?.overview ?? "N/A")
+                self?.delegate?.collectionViewTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 
