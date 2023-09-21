@@ -22,7 +22,7 @@ This is a Netflix clone app built using UIKit. It mimics the UI of the Netflix i
   
 - Networking and Data Operations
   - REST operations for getting and showing movie data from [The Movie Database](https://www.themoviedb.org/)
-  - CRUD operations on movie data in iPhone using Core Data
+  - CRUD operations on movie data in iPhone using [Code Data](https://developer.apple.com/documentation/coredata)
   - Intergrating webView to display youtube video player using [Youtube Data API](https://developers.google.com/youtube/v3/docs/search/list)
   
 - Micro utilities
@@ -32,7 +32,7 @@ This is a Netflix clone app built using UIKit. It mimics the UI of the Netflix i
 
 ## Screenshots
 | App Walkthrough                            | Home                            | Upcoming                                     | Search                     |Childscreen           |
-| ----------------------------------- | ----------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
 | ![App Walkthrough](https://github.com/hiteshsuthar1410/NetflixClone/assets/80826512/86e4031e-d61a-43be-a42b-6fe6ae0f1879)| ![Home](https://github.com/hiteshsuthar1410/NetflixClone/assets/80826512/a85113ab-da8c-430d-b6de-559fe12bfeff) | ![Upcoming](https://github.com/hiteshsuthar1410/NetflixClone/assets/80826512/94c4e0c8-23f9-4e43-8196-3a1b6650ddd7) | ![Search](https://github.com/hiteshsuthar1410/NetflixClone/assets/80826512/6486665f-188b-435f-9cb6-e269fdf7aa0f) |  ![Search](https://github.com/hiteshsuthar1410/NetflixClone/assets/80826512/6486665f-188b-435f-9cb6-e269fdf7aa0f)  |  ![Childscreen](https://github.com/hiteshsuthar1410/NetflixClone/assets/80826512/0d30d824-1db3-4556-8ee6-c4aa92f8371a)  |  
 
 ## Installation
@@ -41,6 +41,7 @@ To run this project locally:
 
 ## Technologies Used
 - [UIKit](https://developer.apple.com/documentation/uikit)
+- [Code Data](https://developer.apple.com/documentation/coredata)
 - [The Movie Database](https://www.themoviedb.org/)
 - [Youtube Data API](https://developers.google.com/youtube/v3/docs/search/list)
 
