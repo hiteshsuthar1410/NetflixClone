@@ -30,7 +30,6 @@ This is a Netflix clone app built using UIKit. It mimics the UI of the Netflix i
   - Swpie to delete in Tableviews
   - Basic operation of NotificationCenter for event occurence
 
-
 ## Screenshots
 [Include screenshots or images of your app here]
 
