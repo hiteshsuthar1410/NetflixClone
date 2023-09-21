@@ -10,9 +10,21 @@ import WebKit
 
 class TitlePreviewViewController: UIViewController {
     
+    private let containerView: UIView = {
+       let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        return containerView
+    }()
+    
+    private let scrollView: UIScrollView = {
+        let scrollview = UIScrollView()
+        scrollview.translatesAutoresizingMaskIntoConstraints = false
+        return scrollview
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = UIColor.label
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .systemFont(ofSize: 22, weight: .bold)
         return label
@@ -20,7 +32,7 @@ class TitlePreviewViewController: UIViewController {
     
     private let overviewLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = UIColor.label
         label.font = .systemFont(ofSize: 18, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0 // this sets max number of lines to infinty
@@ -44,43 +56,64 @@ class TitlePreviewViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        view.backgroundColor = .black
-        view.addSubview(titleLabel)
-        view.addSubview(overviewLabel)
-        view.addSubview(downloadButton)
-        view.addSubview(webView)
+        view.backgroundColor = .systemBackground
+        
+        view.addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(overviewLabel)
+        containerView.addSubview(downloadButton)
+        containerView.addSubview(webView)
         
         configureConstraints()
         
-        navigationController?.navigationBar.isHidden = false
     }
     
     private func configureConstraints() {
+        
+        let scrollViewConstraints = [
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ]
+        
+        let containerViewconstraints = [
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ]
+        
         let webviewConstraints = [
-            webView.topAnchor.constraint(equalTo: view.topAnchor),
-            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webView.heightAnchor.constraint(equalToConstant: 250)
+            webView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            webView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            webView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            webView.heightAnchor.constraint(equalToConstant: 250),
         ]
         
         let titleLabelConstraints = [
             titleLabel.topAnchor.constraint(equalTo: webView.bottomAnchor, constant: 12),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
         ]
         
         let overviewLabelConstraints = [
-            overviewLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            overviewLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
             overviewLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            overviewLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12)
+            overviewLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
         ]
-        
         let downloadButtonConstraints = [
             downloadButton.topAnchor.constraint(equalTo: overviewLabel.bottomAnchor, constant: 12),
-            downloadButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            downloadButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            downloadButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+//            downloadButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+//            downloadButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             downloadButton.widthAnchor.constraint(equalToConstant: 120),
-            downloadButton.heightAnchor.constraint(equalToConstant: 40)
         ]
         
+        NSLayoutConstraint.activate(scrollViewConstraints)
+        NSLayoutConstraint.activate(containerViewconstraints)
         NSLayoutConstraint.activate(webviewConstraints)
         NSLayoutConstraint.activate(titleLabelConstraints)
         NSLayoutConstraint.activate(overviewLabelConstraints)

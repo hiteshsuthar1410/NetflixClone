@@ -22,7 +22,7 @@ class SearchResultsViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.321 - 10 , height: 150)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
         return collectionView

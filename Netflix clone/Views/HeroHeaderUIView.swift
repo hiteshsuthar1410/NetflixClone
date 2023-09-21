@@ -31,7 +31,6 @@ class HeroHeaderUIView: UIView {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "heroImage")
         return imageView
     }()
     
@@ -39,7 +38,7 @@ class HeroHeaderUIView: UIView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
             UIColor.clear.cgColor,
-            UIColor.systemBackground.cgColor
+            UIColor.black.cgColor,
         ]
         gradientLayer.frame = bounds
         layer.addSublayer(gradientLayer)

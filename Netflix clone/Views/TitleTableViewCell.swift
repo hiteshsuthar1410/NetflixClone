@@ -39,7 +39,7 @@ class TitleTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(titlePosterUIImageView)
         contentView.addSubview(titleLabel)
-        contentView.addSubview(playTitleButton)
+//        contentView.addSubview(playTitleButton)
         
         applyConstraints()
     }
@@ -57,19 +57,20 @@ class TitleTableViewCell: UITableViewCell {
         
         let titleLabelContraints = [
             titleLabel.leadingAnchor.constraint(equalTo: titlePosterUIImageView.trailingAnchor, constant: 12),
-            titleLabel.trailingAnchor.constraint(equalTo: playTitleButton.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
             titleLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor , constant: 6)
         ]
         
-        let playButtonConstraints = [
-            playTitleButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 12),
-            playTitleButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
-            playTitleButton.widthAnchor.constraint(equalToConstant: 40)
-        ]
+//        let playButtonConstraints = [
+//            playTitleButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 12),
+//            playTitleButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
+//            playTitleButton.widthAnchor.constraint(equalToConstant: 40),
+//            playTitleButton.heightAnchor.constraint(equalToConstant: 80)
+//        ]
         
         NSLayoutConstraint.activate(titlesPosterUIImageViewConstraints)
         NSLayoutConstraint.activate(titleLabelContraints)
-        NSLayoutConstraint.activate(playButtonConstraints)
+//        NSLayoutConstraint.activate(playButtonConstraints)
         
     }
     
