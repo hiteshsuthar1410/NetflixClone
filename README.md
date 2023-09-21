@@ -5,10 +5,10 @@ This is a Netflix clone app built using UIKit. It mimics the UI of the Netflix i
 
 ## Learnings
 - Create Various ViewControllers with
-UITableView and simple UITableViewCells
-UITableView with UICollectionView inside the TableViewCell
-UICollectionView
-UISearchController
+  - UITableView and simple UITableViewCells
+  - UITableView with UICollectionView inside the TableViewCell
+  - UICollectionView
+  - UISearchController
 
 - Add UI-related operations like
 Programmatic navigation.
