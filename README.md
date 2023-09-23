@@ -4,7 +4,7 @@
 This project is not an official Netflix application. It is a clone created solely for personal learning and educational purposes. The Netflix logo and branding belong to Netflix, Inc. This project is not affiliated with or endorsed by Netflix, Inc.
 
 ## Description
-This is a Netflix clone app built using UIKit. It mimics the UI of the Netflix iOS app, allowing users to browse and view trailers of movies and TV shows.
+This is a Netflix clone app built using UIKit with MVVM architecture. It mimics the UI of the Netflix iOS app, allowing users to browse and view trailers of movies and TV shows.
 
 ## Learnings
 - Create Various ViewControllers with
